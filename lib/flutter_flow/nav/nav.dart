@@ -119,6 +119,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'UserAgreement',
           path: '/userAgreement',
           builder: (context, params) => const UserAgreementWidget(),
+        ),
+        FFRoute(
+          name: 'Busca',
+          path: '/busca',
+          builder: (context, params) => const BuscaWidget(),
+        ),
+        FFRoute(
+          name: 'Configs',
+          path: '/configs',
+          builder: (context, params) => const ConfigsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

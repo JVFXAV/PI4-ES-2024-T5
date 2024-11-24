@@ -1,4 +1,5 @@
 import '/components/bottom_navigation_widget.dart';
+import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -135,13 +136,40 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(4.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(50.0),
-                                child: Image.network(
-                                  'https://images.unsplash.com/photo-1461938337379-4b537cd2db74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxMHx8d29ya2VyfGVufDB8fHx8MTczMDIxOTM2OHww&ixlib=rb-4.0.3&q=80&w=1080',
-                                  width: 100.0,
-                                  height: 100.0,
-                                  fit: BoxFit.cover,
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  await Navigator.push(
+                                    context,
+                                    PageTransition(
+                                      type: PageTransitionType.fade,
+                                      child: FlutterFlowExpandedImageView(
+                                        image: Image.network(
+                                          'https://images.unsplash.com/photo-1461938337379-4b537cd2db74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxNHx8bWFzb24lMjB3b3JrZXJ8ZW58MHx8fHwxNzMyMzg2NTIyfDA&ixlib=rb-4.0.3&q=80&w=400',
+                                          fit: BoxFit.contain,
+                                        ),
+                                        allowRotation: false,
+                                        tag: 'imageTag1',
+                                        useHeroAnimation: true,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: Hero(
+                                  tag: 'imageTag1',
+                                  transitionOnUserGestures: true,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(50.0),
+                                    child: Image.network(
+                                      'https://images.unsplash.com/photo-1461938337379-4b537cd2db74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxNHx8bWFzb24lMjB3b3JrZXJ8ZW58MHx8fHwxNzMyMzg2NTIyfDA&ixlib=rb-4.0.3&q=80&w=400',
+                                      width: 100.0,
+                                      height: 100.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),

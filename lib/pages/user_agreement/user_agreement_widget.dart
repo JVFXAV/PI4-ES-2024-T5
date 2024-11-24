@@ -257,18 +257,16 @@ class _UserAgreementWidgetState extends State<UserAgreementWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: const Color(0x00FFFFFF),
+                                  color: Colors.black,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
                                         fontFamily: 'Inter Tight',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                        color: const Color(0xFFFBFBFB),
                                         letterSpacing: 0.0,
                                       ),
                                   elevation: 0.0,
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).primary,
+                                  borderSide: const BorderSide(
                                     width: 2.0,
                                   ),
                                   borderRadius: BorderRadius.circular(28.0),

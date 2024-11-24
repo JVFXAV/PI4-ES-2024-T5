@@ -49,8 +49,8 @@ class _SelecServicoCliWidgetState extends State<SelecServicoCliWidget> {
               Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: 120.0,
-                decoration: const BoxDecoration(
-                  color: Color(0xFF0563EA),
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).primary,
                 ),
                 child: Padding(
                   padding:

@@ -62,6 +62,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
                       borderColor: Colors.transparent,
                       borderRadius: 8.0,
                       buttonSize: 42.0,
+                      fillColor: const Color(0xFF181818),
                       icon: Icon(
                         Icons.home,
                         color: FlutterFlowTheme.of(context).info,
@@ -82,6 +83,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
                                 .secondaryBackground,
                             fontSize: 10.0,
                             letterSpacing: 0.0,
+                            fontWeight: FontWeight.bold,
                           ),
                     ),
                   ),
@@ -91,37 +93,48 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
             Container(
               width: 65.0,
               decoration: const BoxDecoration(),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                    child: FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 8.0,
-                      buttonSize: 42.0,
-                      icon: Icon(
-                        Icons.search,
-                        color: FlutterFlowTheme.of(context).info,
-                        size: 25.0,
-                      ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
-                      },
-                    ),
-                  ),
-                  Text(
-                    'Buscar',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          fontSize: 10.0,
-                          letterSpacing: 0.0,
+              child: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.pushNamed('Busca');
+                },
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                      child: FlutterFlowIconButton(
+                        borderColor: Colors.transparent,
+                        borderRadius: 8.0,
+                        buttonSize: 42.0,
+                        fillColor: const Color(0xFF181818),
+                        icon: Icon(
+                          Icons.search,
+                          color: FlutterFlowTheme.of(context).info,
+                          size: 25.0,
                         ),
-                  ),
-                ],
+                        onPressed: () {
+                          print('IconButton pressed ...');
+                        },
+                      ),
+                    ),
+                    Text(
+                      'Buscar',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            fontSize: 10.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                  ],
+                ),
               ),
             ),
             Container(
@@ -137,6 +150,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
                       borderColor: Colors.transparent,
                       borderRadius: 8.0,
                       buttonSize: 42.0,
+                      fillColor: const Color(0xFF181818),
                       icon: Icon(
                         Icons.settings_sharp,
                         color: FlutterFlowTheme.of(context).info,
@@ -155,6 +169,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
                               FlutterFlowTheme.of(context).secondaryBackground,
                           fontSize: 10.0,
                           letterSpacing: 0.0,
+                          fontWeight: FontWeight.bold,
                         ),
                   ),
                 ],
@@ -173,6 +188,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
                       borderColor: Colors.transparent,
                       borderRadius: 8.0,
                       buttonSize: 42.0,
+                      fillColor: const Color(0xFF181818),
                       icon: Icon(
                         Icons.calendar_month_outlined,
                         color: FlutterFlowTheme.of(context).info,
@@ -184,13 +200,14 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
                     ),
                   ),
                   Text(
-                    'Agendamentos',
+                    'Agendamento',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Inter',
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           fontSize: 10.0,
                           letterSpacing: 0.0,
+                          fontWeight: FontWeight.bold,
                         ),
                   ),
                 ],
@@ -199,37 +216,48 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
             Container(
               width: 65.0,
               decoration: const BoxDecoration(),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                    child: FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 8.0,
-                      buttonSize: 42.0,
-                      icon: Icon(
-                        Icons.person_sharp,
-                        color: FlutterFlowTheme.of(context).info,
-                        size: 25.0,
-                      ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
-                      },
-                    ),
-                  ),
-                  Text(
-                    'Perfil',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          fontSize: 10.0,
-                          letterSpacing: 0.0,
+              child: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.pushNamed('Profile_page');
+                },
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                      child: FlutterFlowIconButton(
+                        borderColor: Colors.transparent,
+                        borderRadius: 8.0,
+                        buttonSize: 42.0,
+                        fillColor: const Color(0xFF181818),
+                        icon: Icon(
+                          Icons.person_sharp,
+                          color: FlutterFlowTheme.of(context).info,
+                          size: 25.0,
                         ),
-                  ),
-                ],
+                        onPressed: () {
+                          print('IconButton pressed ...');
+                        },
+                      ),
+                    ),
+                    Text(
+                      'Perfil',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            fontSize: 10.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

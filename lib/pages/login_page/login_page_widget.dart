@@ -1,6 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/components/comp_decisao/comp_decisao_widget.dart';
-import '/components/side_nav_widget.dart';
+import '/components/comp_esqueci_senha/comp_esqueci_senha_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -45,7 +45,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryText,
+        backgroundColor: FlutterFlowTheme.of(context).primary,
         body: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.end,
@@ -290,7 +290,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                 16.0, 0.0, 16.0, 0.0),
                             iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primaryText,
+                            color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -322,7 +322,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   onTap: () => FocusScope.of(context).unfocus(),
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
-                                    child: const SideNavWidget(),
+                                    child: const CompEsqueciSenhaWidget(),
                                   ),
                                 );
                               },

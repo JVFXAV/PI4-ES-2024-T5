@@ -65,7 +65,7 @@ class _CadastroProfissionalWidgetState
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryText,
+        backgroundColor: FlutterFlowTheme.of(context).primary,
         body: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.end,
@@ -762,7 +762,7 @@ class _CadastroProfissionalWidgetState
                             16.0, 0.0, 16.0, 0.0),
                         iconPadding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primaryText,
+                        color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Inter Tight',

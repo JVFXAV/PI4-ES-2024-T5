@@ -12,3 +12,5 @@ export '/pages/agendar_servico_cli/agendar_servico_cli_widget.dart'
 export '/pages/profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export '/pages/user_agreement/user_agreement_widget.dart'
     show UserAgreementWidget;
+export '/pages/busca/busca_widget.dart' show BuscaWidget;
+export '/pages/configs/configs_widget.dart' show ConfigsWidget;

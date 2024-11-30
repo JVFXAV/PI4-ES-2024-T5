@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'comp_select_servico_model.dart';
 export 'comp_select_servico_model.dart';
 
@@ -28,9 +29,6 @@ class _CompSelectServicoWidgetState extends State<CompSelectServicoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CompSelectServicoModel());
-
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -63,94 +61,72 @@ class _CompSelectServicoWidgetState extends State<CompSelectServicoWidget> {
                       letterSpacing: 0.0,
                     ),
               ),
-              Text(
-                'Choose the services you\'d like to offer to potential clients.',
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Inter',
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      letterSpacing: 0.0,
-                    ),
-              ),
-              FlutterFlowChoiceChips(
-                options: const [
-                  ChipData('Plumbing', Icons.plumbing),
-                  ChipData('Gardening', Icons.yard),
-                  ChipData('Electrical', Icons.electric_bolt),
-                  ChipData('Carpentry', Icons.handyman),
-                  ChipData('Painting', Icons.format_paint),
-                  ChipData('Cleaning', Icons.cleaning_services),
-                  ChipData('Moving', Icons.local_shipping),
-                  ChipData('Handyman', Icons.build)
-                ],
-                onChanged: (val) => safeSetState(
-                    () => _model.choiceChipsValue = val?.firstOrNull),
-                selectedChipStyle: ChipStyle(
-                  backgroundColor: FlutterFlowTheme.of(context).primary,
-                  textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+              Align(
+                alignment: const AlignmentDirectional(0.0, 0.0),
+                child: Text(
+                  'Choose the services you\'d like to offer to potential clients.',
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Inter',
-                        color: FlutterFlowTheme.of(context).info,
-                        fontSize: 14.0,
+                        color: FlutterFlowTheme.of(context).secondaryText,
                         letterSpacing: 0.0,
                       ),
-                  iconColor: FlutterFlowTheme.of(context).info,
-                  iconSize: 18.0,
-                  elevation: 0.0,
-                  borderRadius: BorderRadius.circular(20.0),
                 ),
-                unselectedChipStyle: ChipStyle(
-                  backgroundColor: const Color(0x1A4B39EF),
-                  textStyle: FlutterFlowTheme.of(context).bodySmall.override(
-                        fontFamily: 'Inter',
-                        color: FlutterFlowTheme.of(context).primary,
-                        fontSize: 14.0,
-                        letterSpacing: 0.0,
-                      ),
-                  iconColor: FlutterFlowTheme.of(context).primary,
-                  iconSize: 18.0,
-                  elevation: 0.0,
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
-                chipSpacing: 8.0,
-                rowSpacing: 12.0,
-                multiselect: false,
-                alignment: WrapAlignment.start,
-                controller: _model.choiceChipsValueController ??=
-                    FormFieldController<List<String>>(
-                  [],
-                ),
-                wrapped: true,
               ),
-              Text(
-                'Other Services',
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Inter',
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      letterSpacing: 0.0,
+              Align(
+                alignment: const AlignmentDirectional(0.0, 0.0),
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                  child: FlutterFlowChoiceChips(
+                    options: const [
+                      ChipData('Construção', Icons.construction_sharp),
+                      ChipData('Limpeza', Icons.cleaning_services),
+                      ChipData('Eletricista', Icons.electric_bolt),
+                      ChipData('Encanador', Icons.construction_sharp),
+                      ChipData('Jardineiro', Icons.grass_outlined),
+                      ChipData('Passeador de Pets', FontAwesomeIcons.dog)
+                    ],
+                    onChanged: (val) => safeSetState(
+                        () => _model.choiceChipsValue = val?.firstOrNull),
+                    selectedChipStyle: ChipStyle(
+                      backgroundColor: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontFamily: 'Inter',
+                                color: FlutterFlowTheme.of(context).info,
+                                fontSize: 14.0,
+                                letterSpacing: 0.0,
+                              ),
+                      iconColor: FlutterFlowTheme.of(context).info,
+                      iconSize: 18.0,
+                      elevation: 0.0,
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
-              ),
-              TextFormField(
-                controller: _model.textController,
-                focusNode: _model.textFieldFocusNode,
-                autofocus: false,
-                obscureText: false,
-                decoration: InputDecoration(
-                  hintText: 'Enter any additional services...',
-                  hintStyle: FlutterFlowTheme.of(context).bodyLarge.override(
-                        fontFamily: 'Inter',
-                        letterSpacing: 0.0,
-                      ),
-                  enabledBorder: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  focusedErrorBorder: InputBorder.none,
-                  filled: true,
-                  fillColor: const Color(0x1A4B39EF),
+                    unselectedChipStyle: ChipStyle(
+                      backgroundColor: const Color(0x1A4B39EF),
+                      textStyle:
+                          FlutterFlowTheme.of(context).bodySmall.override(
+                                fontFamily: 'Inter',
+                                color: FlutterFlowTheme.of(context).primary,
+                                fontSize: 14.0,
+                                letterSpacing: 0.0,
+                              ),
+                      iconColor: FlutterFlowTheme.of(context).primary,
+                      iconSize: 18.0,
+                      elevation: 0.0,
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    chipSpacing: 8.0,
+                    rowSpacing: 12.0,
+                    multiselect: false,
+                    alignment: WrapAlignment.start,
+                    controller: _model.choiceChipsValueController ??=
+                        FormFieldController<List<String>>(
+                      [],
+                    ),
+                    wrapped: true,
+                  ),
                 ),
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Inter',
-                      letterSpacing: 0.0,
-                    ),
-                validator: _model.textControllerValidator.asValidator(context),
               ),
               FFButtonWidget(
                 onPressed: () {

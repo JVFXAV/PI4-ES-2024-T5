@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
 import 'configs_model.dart';
 export 'configs_model.dart';
@@ -171,10 +172,28 @@ class _ConfigsWidgetState extends State<ConfigsWidget> {
                                       ],
                                     ),
                                   ),
-                                  Icon(
-                                    Icons.edit,
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    size: 24.0,
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed(
+                                        'edit_person_profile',
+                                        queryParameters: {
+                                          'nome': serializeParam(
+                                            currentUserDisplayName,
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    },
+                                    child: Icon(
+                                      Icons.edit,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      size: 24.0,
+                                    ),
                                   ),
                                 ].divide(const SizedBox(width: 16.0)),
                               ),
@@ -478,8 +497,36 @@ class _ConfigsWidgetState extends State<ConfigsWidget> {
                         ),
                       ),
                       FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          final selectedFiles = await selectFiles(
+                            allowedExtensions: ['pdf'],
+                            multiFile: false,
+                          );
+                          if (selectedFiles != null) {
+                            safeSetState(() => _model.isDataUploading = true);
+                            var selectedUploadedFiles = <FFUploadedFile>[];
+
+                            try {
+                              selectedUploadedFiles = selectedFiles
+                                  .map((m) => FFUploadedFile(
+                                        name: m.storagePath.split('/').last,
+                                        bytes: m.bytes,
+                                      ))
+                                  .toList();
+                            } finally {
+                              _model.isDataUploading = false;
+                            }
+                            if (selectedUploadedFiles.length ==
+                                selectedFiles.length) {
+                              safeSetState(() {
+                                _model.uploadedLocalFile =
+                                    selectedUploadedFiles.first;
+                              });
+                            } else {
+                              safeSetState(() {});
+                              return;
+                            }
+                          }
                         },
                         text: 'Salvar Alterações',
                         options: FFButtonOptions(
@@ -502,13 +549,9 @@ class _ConfigsWidgetState extends State<ConfigsWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          GoRouter.of(context).prepareAuthEvent();
-                          await authManager.signOut();
-                          GoRouter.of(context).clearRedirectLocation();
-
-                          context.goNamedAuth('LoginPage', context.mounted);
+                          context.pushNamed('Homepage');
                         },
-                        text: 'Sair',
+                        text: 'Voltar',
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: 56.0,

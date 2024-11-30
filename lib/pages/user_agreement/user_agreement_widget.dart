@@ -222,9 +222,9 @@ class _UserAgreementWidgetState extends State<UserAgreementWidget> {
                               ),
                               FFButtonWidget(
                                 onPressed: () async {
-                                  context.pushNamed('HomePage');
+                                  context.pushNamed('Homepage');
                                 },
-                                text: 'Aceitar Termos',
+                                text: 'Aceitar ',
                                 options: FFButtonOptions(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                   height: 56.0,

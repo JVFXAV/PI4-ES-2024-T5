@@ -1,4 +1,3 @@
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -47,51 +46,12 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
         ),
         child: Row(
           mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              width: 65.0,
-              decoration: const BoxDecoration(),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                    child: FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 8.0,
-                      buttonSize: 42.0,
-                      fillColor: const Color(0xFF181818),
-                      icon: Icon(
-                        Icons.home,
-                        color: FlutterFlowTheme.of(context).info,
-                        size: 25.0,
-                      ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
-                      },
-                    ),
-                  ),
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Text(
-                      'Home',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Inter',
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            fontSize: 10.0,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              width: 65.0,
+              width: 100.0,
+              height: 100.0,
               decoration: const BoxDecoration(),
               child: InkWell(
                 splashColor: Colors.transparent,
@@ -99,38 +59,26 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.pushNamed('Busca');
+                  context.pushNamed('Configs');
                 },
                 child: Column(
-                  mainAxisSize: MainAxisSize.max,
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                      child: FlutterFlowIconButton(
-                        borderColor: Colors.transparent,
-                        borderRadius: 8.0,
-                        buttonSize: 42.0,
-                        fillColor: const Color(0xFF181818),
-                        icon: Icon(
-                          Icons.search,
-                          color: FlutterFlowTheme.of(context).info,
-                          size: 25.0,
-                        ),
-                        onPressed: () {
-                          print('IconButton pressed ...');
-                        },
+                    const Align(
+                      alignment: AlignmentDirectional(0.0, -1.0),
+                      child: Icon(
+                        Icons.settings_sharp,
+                        color: Color(0xFFFBFAFA),
+                        size: 40.0,
                       ),
                     ),
                     Text(
-                      'Buscar',
+                      'Configurações',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Inter',
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            fontSize: 10.0,
+                            color: Colors.white,
                             letterSpacing: 0.0,
-                            fontWeight: FontWeight.bold,
                           ),
                     ),
                   ],
@@ -138,83 +86,8 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
               ),
             ),
             Container(
-              width: 80.0,
-              decoration: const BoxDecoration(),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                    child: FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 8.0,
-                      buttonSize: 42.0,
-                      fillColor: const Color(0xFF181818),
-                      icon: Icon(
-                        Icons.settings_sharp,
-                        color: FlutterFlowTheme.of(context).info,
-                        size: 25.0,
-                      ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
-                      },
-                    ),
-                  ),
-                  Text(
-                    'Configurações',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          fontSize: 10.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              width: 72.0,
-              decoration: const BoxDecoration(),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                    child: FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 8.0,
-                      buttonSize: 42.0,
-                      fillColor: const Color(0xFF181818),
-                      icon: Icon(
-                        Icons.calendar_month_outlined,
-                        color: FlutterFlowTheme.of(context).info,
-                        size: 25.0,
-                      ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
-                      },
-                    ),
-                  ),
-                  Text(
-                    'Agendamento',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          fontSize: 10.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              width: 65.0,
+              width: 100.0,
+              height: 100.0,
               decoration: const BoxDecoration(),
               child: InkWell(
                 splashColor: Colors.transparent,
@@ -222,38 +95,26 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.pushNamed('Profile_page');
+                  context.pushNamed('Profile_page_prof');
                 },
                 child: Column(
-                  mainAxisSize: MainAxisSize.max,
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                      child: FlutterFlowIconButton(
-                        borderColor: Colors.transparent,
-                        borderRadius: 8.0,
-                        buttonSize: 42.0,
-                        fillColor: const Color(0xFF181818),
-                        icon: Icon(
-                          Icons.person_sharp,
-                          color: FlutterFlowTheme.of(context).info,
-                          size: 25.0,
-                        ),
-                        onPressed: () {
-                          print('IconButton pressed ...');
-                        },
+                    const Align(
+                      alignment: AlignmentDirectional(0.0, -1.0),
+                      child: Icon(
+                        Icons.person,
+                        color: Color(0xFFFBFAFA),
+                        size: 40.0,
                       ),
                     ),
                     Text(
                       'Perfil',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Inter',
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            fontSize: 10.0,
+                            color: Colors.white,
                             letterSpacing: 0.0,
-                            fontWeight: FontWeight.bold,
                           ),
                     ),
                   ],

@@ -1,9 +1,10 @@
+import '/components/mini_profile/mini_profile_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'selec_servico_cli_widget.dart' show SelecServicoCliWidget;
+import 'homepage_widget.dart' show HomepageWidget;
 import 'package:flutter/material.dart';
 
-class SelecServicoCliModel extends FlutterFlowModel<SelecServicoCliWidget> {
+class HomepageModel extends FlutterFlowModel<HomepageWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for ChoiceChips widget.
@@ -15,15 +16,21 @@ class SelecServicoCliModel extends FlutterFlowModel<SelecServicoCliWidget> {
   // State field(s) for PlacePicker widget.
   FFPlace placePickerValue = const FFPlace();
   // State field(s) for DropDown widget.
-  String? dropDownValue1;
-  FormFieldController<String>? dropDownValueController1;
+  List<String>? dropDownValue1;
+  FormFieldController<List<String>>? dropDownValueController1;
   // State field(s) for DropDown widget.
   String? dropDownValue2;
   FormFieldController<String>? dropDownValueController2;
+  // Model for mini_profile component.
+  late MiniProfileModel miniProfileModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    miniProfileModel = createModel(context, () => MiniProfileModel());
+  }
 
   @override
-  void dispose() {}
+  void dispose() {
+    miniProfileModel.dispose();
+  }
 }

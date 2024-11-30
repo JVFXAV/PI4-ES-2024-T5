@@ -3,11 +3,17 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'agendar_servico_cli_model.dart';
 export 'agendar_servico_cli_model.dart';
 
 class AgendarServicoCliWidget extends StatefulWidget {
-  const AgendarServicoCliWidget({super.key});
+  const AgendarServicoCliWidget({
+    super.key,
+    int? valor,
+  }) : valor = valor ?? 120;
+
+  final int valor;
 
   @override
   State<AgendarServicoCliWidget> createState() =>
@@ -23,6 +29,11 @@ class _AgendarServicoCliWidgetState extends State<AgendarServicoCliWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AgendarServicoCliModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      context.pushNamed('Profile_page_prof');
+    });
   }
 
   @override
@@ -66,8 +77,8 @@ class _AgendarServicoCliWidgetState extends State<AgendarServicoCliWidget> {
                           color: FlutterFlowTheme.of(context).info,
                           size: 24.0,
                         ),
-                        onPressed: () {
-                          print('IconButton pressed ...');
+                        onPressed: () async {
+                          context.pushNamed('Homepage');
                         },
                       ),
                       Text(

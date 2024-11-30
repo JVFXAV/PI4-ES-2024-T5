@@ -72,13 +72,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const HomePageWidget() : const LoginPageWidget(),
+          appStateNotifier.loggedIn ? const HomepageWidget() : const LoginPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const HomePageWidget() : const LoginPageWidget(),
+              appStateNotifier.loggedIn ? const HomepageWidget() : const LoginPageWidget(),
         ),
         FFRoute(
           name: 'LoginPage',
@@ -96,24 +96,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const CadastroProfissionalWidget(),
         ),
         FFRoute(
-          name: 'HomePage',
-          path: '/homePage',
-          builder: (context, params) => const HomePageWidget(),
-        ),
-        FFRoute(
-          name: 'SelecServicoCli',
-          path: '/selecServicoCli',
-          builder: (context, params) => const SelecServicoCliWidget(),
+          name: 'Homepage',
+          path: '/homepage',
+          builder: (context, params) => const HomepageWidget(),
         ),
         FFRoute(
           name: 'AgendarServicoCli',
           path: '/agendarServicoCli',
-          builder: (context, params) => const AgendarServicoCliWidget(),
+          builder: (context, params) => AgendarServicoCliWidget(
+            valor: params.getParam(
+              'valor',
+              ParamType.int,
+            ),
+          ),
         ),
         FFRoute(
-          name: 'Profile_page',
-          path: '/profilePage',
-          builder: (context, params) => const ProfilePageWidget(),
+          name: 'Profile_page_prof',
+          path: '/profilePageProf',
+          builder: (context, params) => const ProfilePageProfWidget(),
         ),
         FFRoute(
           name: 'UserAgreement',
@@ -121,14 +121,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const UserAgreementWidget(),
         ),
         FFRoute(
-          name: 'Busca',
-          path: '/busca',
-          builder: (context, params) => const BuscaWidget(),
-        ),
-        FFRoute(
           name: 'Configs',
           path: '/configs',
           builder: (context, params) => const ConfigsWidget(),
+        ),
+        FFRoute(
+          name: 'edit_person_profile',
+          path: '/editPersonProfile',
+          builder: (context, params) => EditPersonProfileWidget(
+            nome: params.getParam(
+              'nome',
+              ParamType.String,
+            ),
+            cidade: params.getParam(
+              'cidade',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'home_profissional',
+          path: '/homeProfissional',
+          builder: (context, params) => const HomeProfissionalWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

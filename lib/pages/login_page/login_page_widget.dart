@@ -280,7 +280,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               return;
                             }
 
-                            context.pushNamedAuth('HomePage', context.mounted);
+                            context.pushNamedAuth('Homepage', context.mounted);
                           },
                           text: 'Entrar',
                           options: FFButtonOptions(

@@ -276,11 +276,92 @@ class ReplaceUserCall {
 
 /// End ServicosJa  API Group Code
 
-class TesteCall {
+class CriarClienteCall {
+  static Future<ApiCallResponse> call({
+    String? email = '',
+    String? name = '',
+    String? cep = '',
+    String? complemento = '',
+    String? cpf = '',
+    String? password = '',
+    dynamic addressJson,
+  }) async {
+    final address = _serializeJson(addressJson);
+    final ffApiRequestBody = '''
+{
+  "email": "${escapeStringForJson(email)}",
+  "name": "${escapeStringForJson(name)}",
+  "cep": "${escapeStringForJson(cep)}",
+  "complemento": "${escapeStringForJson(complemento)}",
+  "cpf": "${escapeStringForJson(cpf)}",
+  "password": "${escapeStringForJson(password)}",
+  "address": $address
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Criar cliente',
+      apiUrl: 'https://api-n006.onrender.com/api/cadastro',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class CriarProfissionalCall {
+  static Future<ApiCallResponse> call({
+    String? email = '',
+    String? name = '',
+    String? profession = '',
+    dynamic addressJson,
+    String? cep = '',
+    String? complemento = '',
+    String? password = '',
+    String? cpf = '',
+  }) async {
+    final address = _serializeJson(addressJson);
+    final ffApiRequestBody = '''
+{
+  "email": "${escapeStringForJson(email)}",
+  "name": "${escapeStringForJson(name)}",
+  "profession": "${escapeStringForJson(profession)}",
+  "cep": "${escapeStringForJson(cep)}",
+  "complemento": "${escapeStringForJson(complemento)}",
+  "cpf": "${escapeStringForJson(cpf)}",
+  "password": "${escapeStringForJson(password)}",
+  "address": $address
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Criar profissional',
+      apiUrl: 'https://api2-ojk4.onrender.com/api/cadastroProfissional',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class BuscarPorProfissaoCall {
   static Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
-      callName: 'teste',
-      apiUrl: 'https://gw.apiflow.online/q/f7ee28341c75455cbdf87ec574d37076',
+      callName: 'Buscar por profissao',
+      apiUrl:
+          'https://api3-398l.onrender.com/api/professionals?professions=PROFISSAO1,PROFISSAO2',
       callType: ApiCallType.GET,
       headers: {},
       params: {},

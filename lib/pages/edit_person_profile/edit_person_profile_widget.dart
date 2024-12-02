@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -9,6 +10,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'edit_person_profile_model.dart';
 export 'edit_person_profile_model.dart';
 
@@ -27,24 +29,43 @@ class EditPersonProfileWidget extends StatefulWidget {
       _EditPersonProfileWidgetState();
 }
 
-class _EditPersonProfileWidgetState extends State<EditPersonProfileWidget> {
+class _EditPersonProfileWidgetState extends State<EditPersonProfileWidget>
+    with TickerProviderStateMixin {
   late EditPersonProfileModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => EditPersonProfileModel());
 
-    _model.yourNameTextController ??= TextEditingController(text: widget.nome);
+    _model.yourNameTextController ??=
+        TextEditingController(text: currentUserDisplayName);
     _model.yourNameFocusNode ??= FocusNode();
 
-    _model.cityTextController ??= TextEditingController(text: widget.cidade);
+    _model.cityTextController ??= TextEditingController();
     _model.cityFocusNode ??= FocusNode();
 
     _model.myBioTextController ??= TextEditingController();
     _model.myBioFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'textFieldOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -283,7 +304,8 @@ class _EditPersonProfileWidgetState extends State<EditPersonProfileWidget> {
                     ),
                 validator:
                     _model.yourNameTextControllerValidator.asValidator(context),
-              ),
+              ).animateOnPageLoad(
+                  animationsMap['textFieldOnPageLoadAnimation']!),
             ),
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),

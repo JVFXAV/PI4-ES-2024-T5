@@ -67,86 +67,80 @@ class _HomeProfissionalWidgetState extends State<HomeProfissionalWidget>
               Align(
                 alignment: const AlignmentDirectional(-1.0, 0.0),
                 child: Container(
-                  width: 394.0,
-                  height: 200.0,
+                  width: 405.0,
+                  height: 175.0,
                   decoration: const BoxDecoration(
                     color: Color(0xFF4B39EF),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [],
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                10.0, 10.0, 0.0, 0.0),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                await showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  enableDrag: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return GestureDetector(
-                                      onTap: () =>
-                                          FocusScope.of(context).unfocus(),
-                                      child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: const BottomNavigationWidget(),
-                                      ),
-                                    );
-                                  },
-                                ).then((value) => safeSetState(() {}));
-                              },
-                              text: '',
-                              icon: const FaIcon(
-                                FontAwesomeIcons.alignJustify,
-                                color: Colors.white,
-                                size: 36.0,
-                              ),
-                              options: FFButtonOptions(
-                                width: 78.0,
-                                height: 42.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                iconAlignment: IconAlignment.start,
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 40.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .displayLarge
-                                    .override(
-                                      fontFamily: 'Inter Tight',
-                                      letterSpacing: 0.0,
+                      Align(
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              10.0, 10.0, 0.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return GestureDetector(
+                                    onTap: () =>
+                                        FocusScope.of(context).unfocus(),
+                                    child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: const BottomNavigationWidget(),
                                     ),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(24.0),
-                              ),
-                            ).animateOnPageLoad(
-                                animationsMap['buttonOnPageLoadAnimation']!),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Text(
-                              'Serviços Já - Profissional',
-                              style: FlutterFlowTheme.of(context)
-                                  .headlineMedium
+                                  );
+                                },
+                              ).then((value) => safeSetState(() {}));
+                            },
+                            text: '',
+                            icon: const FaIcon(
+                              FontAwesomeIcons.alignJustify,
+                              color: Colors.white,
+                              size: 36.0,
+                            ),
+                            options: FFButtonOptions(
+                              width: 78.0,
+                              height: 51.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconAlignment: IconAlignment.start,
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 40.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .displayLarge
                                   .override(
                                     fontFamily: 'Inter Tight',
-                                    color: Colors.white,
-                                    fontSize: 22.0,
                                     letterSpacing: 0.0,
                                   ),
+                              elevation: 0.0,
+                              borderRadius: BorderRadius.circular(24.0),
                             ),
-                          ),
-                        ],
+                          ).animateOnPageLoad(
+                              animationsMap['buttonOnPageLoadAnimation']!),
+                        ),
+                      ),
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          'Serviços Já - Profissional',
+                          style: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .override(
+                                fontFamily: 'Inter Tight',
+                                color: Colors.white,
+                                fontSize: 22.0,
+                                letterSpacing: 0.0,
+                              ),
+                        ),
                       ),
                     ],
                   ),
@@ -154,6 +148,7 @@ class _HomeProfissionalWidgetState extends State<HomeProfissionalWidget>
               ),
               Container(
                 width: 405.0,
+                height: 679.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
@@ -161,67 +156,92 @@ class _HomeProfissionalWidgetState extends State<HomeProfissionalWidget>
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Container(
-                          width: 100.0,
-                          height: 100.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: 100.0,
+                            height: 119.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).alternate,
+                              borderRadius: BorderRadius.circular(24.0),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('Payment_pro_page');
+                                  },
+                                  child: Icon(
+                                    Icons.attach_money,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 90.0,
+                                  ),
+                                ),
+                                Text(
+                                  'Saques',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        fontSize: 20.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ],
+                            ),
                           ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Icon(
-                                Icons.attach_money,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 90.0,
-                              ),
-                              Text(
-                                'Saques',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      fontSize: 20.0,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                            ],
+                          Container(
+                            width: 100.0,
+                            height: 119.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).alternate,
+                              borderRadius: BorderRadius.circular(24.0),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('Servicos_prof');
+                                  },
+                                  child: Icon(
+                                    Icons.notifications_sharp,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 90.0,
+                                  ),
+                                ),
+                                Text(
+                                  'Serviços',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        fontSize: 20.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        Container(
-                          width: 100.0,
-                          height: 100.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Icon(
-                                Icons.notifications_sharp,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 90.0,
-                              ),
-                              Text(
-                                'Serviços',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      fontSize: 20.0,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ].divide(const SizedBox(width: 20.0)),
+                        ],
+                      ),
                     ),
                   ]
                       .divide(const SizedBox(height: 40.0))

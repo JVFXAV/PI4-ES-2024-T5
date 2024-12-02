@@ -1,14 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'homepage_widget.dart' show HomepageWidget;
+import 'payment_pro_page_widget.dart' show PaymentProPageWidget;
 import 'package:flutter/material.dart';
 
-class HomepageModel extends FlutterFlowModel<HomepageWidget> {
-  ///  Local state fields for this page.
-
-  String varNome = ' ';
-
-  String varProfissao = ' ';
-
+class PaymentProPageModel extends FlutterFlowModel<PaymentProPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for TextField widget.

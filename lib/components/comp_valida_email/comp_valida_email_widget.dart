@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -131,10 +130,10 @@ class _CompValidaEmailWidgetState extends State<CompValidaEmailWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      await authManager.sendEmailVerification();
+                      context.pushNamed('LoginPage');
                     },
                     child: Text(
-                      'Reenviar',
+                      'OK!',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Inter',
                             color: const Color(0xFF0C6BFF),

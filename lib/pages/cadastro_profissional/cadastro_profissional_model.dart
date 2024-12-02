@@ -18,6 +18,10 @@ class CadastroProfissionalModel
   FocusNode? cpfTextFocusNode;
   TextEditingController? cpfTextTextController;
   String? Function(BuildContext, String?)? cpfTextTextControllerValidator;
+  // State field(s) for profissao widget.
+  FocusNode? profissaoFocusNode;
+  TextEditingController? profissaoTextController;
+  String? Function(BuildContext, String?)? profissaoTextControllerValidator;
   // State field(s) for cepText widget.
   FocusNode? cepTextFocusNode;
   TextEditingController? cepTextTextController;
@@ -26,6 +30,14 @@ class CadastroProfissionalModel
   FocusNode? enderecoTextFocusNode;
   TextEditingController? enderecoTextTextController;
   String? Function(BuildContext, String?)? enderecoTextTextControllerValidator;
+  // State field(s) for city widget.
+  FocusNode? cityFocusNode;
+  TextEditingController? cityTextController;
+  String? Function(BuildContext, String?)? cityTextControllerValidator;
+  // State field(s) for comissao widget.
+  FocusNode? comissaoFocusNode;
+  TextEditingController? comissaoTextController;
+  String? Function(BuildContext, String?)? comissaoTextControllerValidator;
   // State field(s) for complementoText widget.
   FocusNode? complementoTextFocusNode;
   TextEditingController? complementoTextTextController;
@@ -59,11 +71,20 @@ class CadastroProfissionalModel
     cpfTextFocusNode?.dispose();
     cpfTextTextController?.dispose();
 
+    profissaoFocusNode?.dispose();
+    profissaoTextController?.dispose();
+
     cepTextFocusNode?.dispose();
     cepTextTextController?.dispose();
 
     enderecoTextFocusNode?.dispose();
     enderecoTextTextController?.dispose();
+
+    cityFocusNode?.dispose();
+    cityTextController?.dispose();
+
+    comissaoFocusNode?.dispose();
+    comissaoTextController?.dispose();
 
     complementoTextFocusNode?.dispose();
     complementoTextTextController?.dispose();

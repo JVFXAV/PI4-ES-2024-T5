@@ -10,10 +10,6 @@ class ConfigsModel extends FlutterFlowModel<ConfigsWidget> {
   bool? switchValue1;
   // State field(s) for Switch widget.
   bool? switchValue2;
-  // State field(s) for Switch widget.
-  bool? switchValue3;
-  // State field(s) for Switch widget.
-  bool? switchValue4;
   // State field(s) for DropDown widget.
   String? dropDownValue1;
   FormFieldController<String>? dropDownValueController1;

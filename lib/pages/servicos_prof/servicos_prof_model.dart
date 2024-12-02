@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'buttonconfig_widget.dart' show ButtonconfigWidget;
+import 'servicos_prof_widget.dart' show ServicosProfWidget;
 import 'package:flutter/material.dart';
 
-class ButtonconfigModel extends FlutterFlowModel<ButtonconfigWidget> {
+class ServicosProfModel extends FlutterFlowModel<ServicosProfWidget> {
   @override
   void initState(BuildContext context) {}
 

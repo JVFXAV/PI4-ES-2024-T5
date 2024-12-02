@@ -106,14 +106,39 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => AgendarServicoCliWidget(
             valor: params.getParam(
               'valor',
-              ParamType.int,
+              ParamType.double,
+            ),
+            emailUser: params.getParam(
+              'emailUser',
+              ParamType.String,
+            ),
+            emailProf: params.getParam(
+              'emailProf',
+              ParamType.String,
+            ),
+            desc: params.getParam(
+              'desc',
+              ParamType.String,
             ),
           ),
         ),
         FFRoute(
           name: 'Profile_page_prof',
           path: '/profilePageProf',
-          builder: (context, params) => const ProfilePageProfWidget(),
+          builder: (context, params) => ProfilePageProfWidget(
+            nome: params.getParam(
+              'nome',
+              ParamType.String,
+            ),
+            profissao: params.getParam(
+              'profissao',
+              ParamType.String,
+            ),
+            valor: params.getParam(
+              'valor',
+              ParamType.double,
+            ),
+          ),
         ),
         FFRoute(
           name: 'UserAgreement',
@@ -126,7 +151,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const ConfigsWidget(),
         ),
         FFRoute(
-          name: 'edit_person_profile',
+          name: 'Edit_person_profile',
           path: '/editPersonProfile',
           builder: (context, params) => EditPersonProfileWidget(
             nome: params.getParam(
@@ -140,9 +165,34 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'home_profissional',
+          name: 'Home_profissional',
           path: '/homeProfissional',
           builder: (context, params) => const HomeProfissionalWidget(),
+        ),
+        FFRoute(
+          name: 'Payment_pro_page',
+          path: '/paymentProPage',
+          builder: (context, params) => const PaymentProPageWidget(),
+        ),
+        FFRoute(
+          name: 'Task_pro',
+          path: '/taskPro',
+          builder: (context, params) => const TaskProWidget(),
+        ),
+        FFRoute(
+          name: 'Servicos_prof',
+          path: '/servicosProf',
+          builder: (context, params) => const ServicosProfWidget(),
+        ),
+        FFRoute(
+          name: 'Sucess_pedido',
+          path: '/sucessPedido',
+          builder: (context, params) => const SucessPedidoWidget(),
+        ),
+        FFRoute(
+          name: 'Pedidos_user',
+          path: '/pedidosUser',
+          builder: (context, params) => const PedidosUserWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

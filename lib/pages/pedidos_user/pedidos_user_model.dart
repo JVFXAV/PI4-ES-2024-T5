@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'buttonprofile_widget.dart' show ButtonprofileWidget;
+import 'pedidos_user_widget.dart' show PedidosUserWidget;
 import 'package:flutter/material.dart';
 
-class ButtonprofileModel extends FlutterFlowModel<ButtonprofileWidget> {
+class PedidosUserModel extends FlutterFlowModel<PedidosUserWidget> {
   @override
   void initState(BuildContext context) {}
 

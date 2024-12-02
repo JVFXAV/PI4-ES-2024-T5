@@ -1,280 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
+import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
-
-/// Start ServicosJa  API Group Code
-
-class ServicosJaAPIGroup {
-  static String getBaseUrl() =>
-      'https://gw.apiflow.online/api/0af48e85cad74a2185e3d4919770ab22';
-  static Map<String, String> headers = {
-    'Authorization':
-        'Bearer YzkzOWYyYzVjNDk4M2Y5M2YxNjkwN2UwNDAzNjlkNTA6MjkwZWNmNWM5ZThhNGMxNWY0ZTBkZDUzOWUzMWFlNjM=',
-  };
-  static ListUserCall listUserCall = ListUserCall();
-  static CreateNewUserCall createNewUserCall = CreateNewUserCall();
-  static CreateNewProfessionalCall createNewProfessionalCall =
-      CreateNewProfessionalCall();
-  static GetProfessionalByProfissaoCall getProfessionalByProfissaoCall =
-      GetProfessionalByProfissaoCall();
-  static UpdateUserCall updateUserCall = UpdateUserCall();
-  static ReplaceUserCall replaceUserCall = ReplaceUserCall();
-}
-
-class ListUserCall {
-  Future<ApiCallResponse> call({
-    String? filter = '',
-    String? sort = '',
-    int? skip,
-    int? limit,
-    String? id = '',
-    String? email = '',
-    String? name = '',
-    String? cep = '',
-    String? complemento = '',
-    String? cpf = '',
-    String? password = '',
-    String? address = '',
-  }) async {
-    final baseUrl = ServicosJaAPIGroup.getBaseUrl();
-
-    return ApiManager.instance.makeApiCall(
-      callName: 'List User',
-      apiUrl: '$baseUrl/collection/User',
-      callType: ApiCallType.GET,
-      headers: {
-        'Authorization':
-            'Bearer YzkzOWYyYzVjNDk4M2Y5M2YxNjkwN2UwNDAzNjlkNTA6MjkwZWNmNWM5ZThhNGMxNWY0ZTBkZDUzOWUzMWFlNjM=',
-      },
-      params: {
-        'filter': filter,
-        'sort': sort,
-        'skip': skip,
-        'limit': limit,
-        'id': id,
-        'email': email,
-        'name': name,
-        'cep': cep,
-        'complemento': complemento,
-        'cpf': cpf,
-        'password': password,
-        'address': address,
-      },
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class CreateNewUserCall {
-  Future<ApiCallResponse> call({
-    String? email = '',
-    String? name = '',
-    String? cep = '',
-    String? complemento = '',
-    String? cpf = '',
-    String? password = '',
-    dynamic addressJson,
-  }) async {
-    final baseUrl = ServicosJaAPIGroup.getBaseUrl();
-
-    final address = _serializeJson(addressJson);
-    final ffApiRequestBody = '''
-{
-  "email": "${escapeStringForJson(email)}",
-  "name": "${escapeStringForJson(name)}",
-  "cep": "${escapeStringForJson(cep)}",
-  "complemento": "${escapeStringForJson(complemento)}",
-  "cpf": "${escapeStringForJson(cpf)}",
-  "password": "${escapeStringForJson(password)}",
-  "address": $address
-}''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'Create new User',
-      apiUrl: '$baseUrl/collection/User',
-      callType: ApiCallType.POST,
-      headers: {
-        'Authorization':
-            'Bearer YzkzOWYyYzVjNDk4M2Y5M2YxNjkwN2UwNDAzNjlkNTA6MjkwZWNmNWM5ZThhNGMxNWY0ZTBkZDUzOWUzMWFlNjM=',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: true,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class CreateNewProfessionalCall {
-  Future<ApiCallResponse> call({
-    String? email = '',
-    String? name = '',
-    String? cep = '',
-    String? complemento = '',
-    String? cpf = '',
-    String? password = '',
-    dynamic addressJson,
-    String? profession = '',
-  }) async {
-    final baseUrl = ServicosJaAPIGroup.getBaseUrl();
-
-    final address = _serializeJson(addressJson);
-    final ffApiRequestBody = '''
-{
-  "email": "${escapeStringForJson(email)}",
-  "name": "${escapeStringForJson(name)}",
-  "profession": "${escapeStringForJson(profession)}",
-  "cep": "${escapeStringForJson(cep)}",
-  "complemento": "${escapeStringForJson(complemento)}",
-  "cpf": "${escapeStringForJson(cpf)}",
-  "password": "${escapeStringForJson(password)}",
-  "address": $address
-}''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'Create new professional',
-      apiUrl: '$baseUrl/collection/Professional',
-      callType: ApiCallType.POST,
-      headers: {
-        'Authorization':
-            'Bearer YzkzOWYyYzVjNDk4M2Y5M2YxNjkwN2UwNDAzNjlkNTA6MjkwZWNmNWM5ZThhNGMxNWY0ZTBkZDUzOWUzMWFlNjM=',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: true,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class GetProfessionalByProfissaoCall {
-  Future<ApiCallResponse> call({
-    String? prof = '',
-  }) async {
-    final baseUrl = ServicosJaAPIGroup.getBaseUrl();
-
-    return ApiManager.instance.makeApiCall(
-      callName: 'Get professional by profissao',
-      apiUrl: '$baseUrl/collection/Professional/$prof',
-      callType: ApiCallType.GET,
-      headers: {
-        'Authorization':
-            'Bearer YzkzOWYyYzVjNDk4M2Y5M2YxNjkwN2UwNDAzNjlkNTA6MjkwZWNmNWM5ZThhNGMxNWY0ZTBkZDUzOWUzMWFlNjM=',
-      },
-      params: {
-        '_ftsx': prof,
-      },
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class UpdateUserCall {
-  Future<ApiCallResponse> call({
-    String? id = '',
-  }) async {
-    final baseUrl = ServicosJaAPIGroup.getBaseUrl();
-
-    const ffApiRequestBody = '''
-{
-  "email": "teste1@email.com",
-  "name": "Perobas",
-  "cep": "10000001",
-  "complemento": "casa amaryellow",
-  "cpf": "12345678902",
-  "password": "123321",
-  "address": {}
-}''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'Update User',
-      apiUrl: '$baseUrl/collection/User/$id',
-      callType: ApiCallType.PATCH,
-      headers: {
-        'Authorization':
-            'Bearer YzkzOWYyYzVjNDk4M2Y5M2YxNjkwN2UwNDAzNjlkNTA6MjkwZWNmNWM5ZThhNGMxNWY0ZTBkZDUzOWUzMWFlNjM=',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class ReplaceUserCall {
-  Future<ApiCallResponse> call({
-    String? id = '',
-    String? email = '',
-    String? name = '',
-    String? cep = '',
-    String? complemento = '',
-    String? cpf = '',
-    String? password = '',
-    dynamic addressJson,
-  }) async {
-    final baseUrl = ServicosJaAPIGroup.getBaseUrl();
-
-    final address = _serializeJson(addressJson);
-    final ffApiRequestBody = '''
-{
-  "email": "${escapeStringForJson(email)}",
-  "name": "${escapeStringForJson(name)}",
-  "cep": "${escapeStringForJson(cep)}",
-  "complemento": "${escapeStringForJson(complemento)}",
-  "cpf": "${escapeStringForJson(cpf)}",
-  "password": "${escapeStringForJson(password)}",
-  "address": $address
-}''';
-    return ApiManager.instance.makeApiCall(
-      callName: 'Replace User',
-      apiUrl: '$baseUrl/collection/User/$id',
-      callType: ApiCallType.PUT,
-      headers: {
-        'Authorization':
-            'Bearer YzkzOWYyYzVjNDk4M2Y5M2YxNjkwN2UwNDAzNjlkNTA6MjkwZWNmNWM5ZThhNGMxNWY0ZTBkZDUzOWUzMWFlNjM=',
-      },
-      params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-/// End ServicosJa  API Group Code
 
 class CriarClienteCall {
   static Future<ApiCallResponse> call({
@@ -284,9 +16,9 @@ class CriarClienteCall {
     String? complemento = '',
     String? cpf = '',
     String? password = '',
-    dynamic addressJson,
+    String? address = '',
+    String? city = '',
   }) async {
-    final address = _serializeJson(addressJson);
     final ffApiRequestBody = '''
 {
   "email": "${escapeStringForJson(email)}",
@@ -295,7 +27,8 @@ class CriarClienteCall {
   "complemento": "${escapeStringForJson(complemento)}",
   "cpf": "${escapeStringForJson(cpf)}",
   "password": "${escapeStringForJson(password)}",
-  "address": $address
+  "address": "${escapeStringForJson(address)}",
+  "city": "${escapeStringForJson(city)}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Criar cliente',
@@ -320,13 +53,14 @@ class CriarProfissionalCall {
     String? email = '',
     String? name = '',
     String? profession = '',
-    dynamic addressJson,
+    String? address = '',
     String? cep = '',
     String? complemento = '',
     String? password = '',
     String? cpf = '',
+    String? valor = '',
+    String? city = '',
   }) async {
-    final address = _serializeJson(addressJson);
     final ffApiRequestBody = '''
 {
   "email": "${escapeStringForJson(email)}",
@@ -336,7 +70,9 @@ class CriarProfissionalCall {
   "complemento": "${escapeStringForJson(complemento)}",
   "cpf": "${escapeStringForJson(cpf)}",
   "password": "${escapeStringForJson(password)}",
-  "address": $address
+  "valor": "${escapeStringForJson(valor)}",
+  "address": "${escapeStringForJson(address)}",
+  "city": "${escapeStringForJson(city)}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Criar profissional',
@@ -357,14 +93,125 @@ class CriarProfissionalCall {
 }
 
 class BuscarPorProfissaoCall {
-  static Future<ApiCallResponse> call() async {
+  static Future<ApiCallResponse> call({
+    String? professions = '',
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'Buscar por profissao',
       apiUrl:
-          'https://api3-398l.onrender.com/api/professionals?professions=PROFISSAO1,PROFISSAO2',
+          'https://api3-398l.onrender.com/api/professionals?professions={professions}',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'professions': professions,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List<String>? nome(dynamic response) => (getJsonField(
+        response,
+        r'''$[*].name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? professions(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].profession''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? email(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].email''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? nomes2(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? data(dynamic response) => getJsonField(
+        response,
+        r'''$[*]''',
+        true,
+      ) as List?;
+  static List<String>? valor(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].valor''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class GETServicosCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GET servicos',
+      apiUrl: 'https://api4-pkjo.onrender.com/api/services/',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class POSTServicosCall {
+  static Future<ApiCallResponse> call({
+    String? emailUser = '',
+    String? emailProf = '',
+    double? valor,
+    String? hora = '',
+    String? loc = '',
+    String? status = '',
+    String? descricao = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "email_user": "${escapeStringForJson(emailUser)}",
+  "email_prof": "${escapeStringForJson(emailProf)}",
+  "valor": $valor,
+  "hora": "${escapeStringForJson(hora)}",
+  "loc": "${escapeStringForJson(loc)}",
+  "status": "${escapeStringForJson(status)}",
+  "descricao": "${escapeStringForJson(descricao)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'POST servicos',
+      apiUrl: 'https://api4-pkjo.onrender.com/api/services/',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

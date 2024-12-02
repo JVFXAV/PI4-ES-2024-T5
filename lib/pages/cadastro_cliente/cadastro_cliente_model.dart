@@ -21,6 +21,10 @@ class CadastroClienteModel extends FlutterFlowModel<CadastroClienteWidget> {
   FocusNode? cepTextFocusNode;
   TextEditingController? cepTextTextController;
   String? Function(BuildContext, String?)? cepTextTextControllerValidator;
+  // State field(s) for City widget.
+  FocusNode? cityFocusNode;
+  TextEditingController? cityTextController;
+  String? Function(BuildContext, String?)? cityTextControllerValidator;
   // State field(s) for enderecoText widget.
   FocusNode? enderecoTextFocusNode;
   TextEditingController? enderecoTextTextController;
@@ -60,6 +64,9 @@ class CadastroClienteModel extends FlutterFlowModel<CadastroClienteWidget> {
 
     cepTextFocusNode?.dispose();
     cepTextTextController?.dispose();
+
+    cityFocusNode?.dispose();
+    cityTextController?.dispose();
 
     enderecoTextFocusNode?.dispose();
     enderecoTextTextController?.dispose();

@@ -16,3 +16,9 @@ export '/pages/edit_person_profile/edit_person_profile_widget.dart'
     show EditPersonProfileWidget;
 export '/pages/home_profissional/home_profissional_widget.dart'
     show HomeProfissionalWidget;
+export '/pages/payment_pro_page/payment_pro_page_widget.dart'
+    show PaymentProPageWidget;
+export '/pages/task_pro/task_pro_widget.dart' show TaskProWidget;
+export '/pages/servicos_prof/servicos_prof_widget.dart' show ServicosProfWidget;
+export '/pages/sucess_pedido/sucess_pedido_widget.dart' show SucessPedidoWidget;
+export '/pages/pedidos_user/pedidos_user_widget.dart' show PedidosUserWidget;

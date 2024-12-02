@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,7 @@ class _MiniProfileWidgetState extends State<MiniProfileWidget> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).secondary,
+        color: FlutterFlowTheme.of(context).primary,
         borderRadius: BorderRadius.circular(12.0),
         shape: BoxShape.rectangle,
       ),
@@ -55,8 +56,8 @@ class _MiniProfileWidgetState extends State<MiniProfileWidget> {
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                 ),
-                child: Image.network(
-                  'https://picsum.photos/seed/921/600',
+                child: Image.asset(
+                  'assets/images/kanye.png',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -84,7 +85,7 @@ class _MiniProfileWidgetState extends State<MiniProfileWidget> {
                                 ),
                           ),
                           Text(
-                            'Jose aldo',
+                            currentUserDisplayName,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(

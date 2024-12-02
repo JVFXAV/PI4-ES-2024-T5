@@ -26,10 +26,8 @@ class _ConfigsWidgetState extends State<ConfigsWidget> {
     super.initState();
     _model = createModel(context, () => ConfigsModel());
 
-    _model.switchValue1 = true;
-    _model.switchValue2 = true;
-    _model.switchValue3 = true;
-    _model.switchValue4 = true;
+    _model.switchValue1 = false;
+    _model.switchValue2 = false;
   }
 
   @override
@@ -179,7 +177,7 @@ class _ConfigsWidgetState extends State<ConfigsWidget> {
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       context.pushNamed(
-                                        'edit_person_profile',
+                                        'Edit_person_profile',
                                         queryParameters: {
                                           'nome': serializeParam(
                                             currentUserDisplayName,
@@ -214,7 +212,7 @@ class _ConfigsWidgetState extends State<ConfigsWidget> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
-                                'Notificações',
+                                'Geral',
                                 style: FlutterFlowTheme.of(context)
                                     .headlineSmall
                                     .override(
@@ -230,7 +228,7 @@ class _ConfigsWidgetState extends State<ConfigsWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Notificações Push',
+                                    'Modo Escuro',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
@@ -243,18 +241,21 @@ class _ConfigsWidgetState extends State<ConfigsWidget> {
                                     onChanged: (newValue) async {
                                       safeSetState(() =>
                                           _model.switchValue1 = newValue);
+                                      if (newValue) {
+                                        setDarkModeSetting(
+                                            context, ThemeMode.dark);
+                                      } else {
+                                        setDarkModeSetting(
+                                            context, ThemeMode.light);
+                                      }
                                     },
-                                    activeColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    activeTrackColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                    activeColor: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    activeTrackColor: Colors.black,
                                     inactiveTrackColor:
                                         FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                    inactiveThumbColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                            .secondaryBackground,
+                                    inactiveThumbColor: Colors.black,
                                   ),
                                 ],
                               ),
@@ -278,112 +279,13 @@ class _ConfigsWidgetState extends State<ConfigsWidget> {
                                       safeSetState(() =>
                                           _model.switchValue2 = newValue);
                                     },
-                                    activeColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    activeTrackColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                    activeColor: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    activeTrackColor: Colors.black,
                                     inactiveTrackColor:
                                         FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                    inactiveThumbColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                  ),
-                                ],
-                              ),
-                            ].divide(const SizedBox(height: 16.0)),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).alternate,
-                          borderRadius: BorderRadius.circular(16.0),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 16.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                'Privacidade',
-                                style: FlutterFlowTheme.of(context)
-                                    .headlineSmall
-                                    .override(
-                                      fontFamily: 'Inter Tight',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Perfil Público',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                  Switch(
-                                    value: _model.switchValue3!,
-                                    onChanged: (newValue) async {
-                                      safeSetState(() =>
-                                          _model.switchValue3 = newValue);
-                                    },
-                                    activeColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    activeTrackColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                    inactiveTrackColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                    inactiveThumbColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Mostrar Localização',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                  Switch(
-                                    value: _model.switchValue4!,
-                                    onChanged: (newValue) async {
-                                      safeSetState(() =>
-                                          _model.switchValue4 = newValue);
-                                    },
-                                    activeColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    activeTrackColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                    inactiveTrackColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                    inactiveThumbColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                            .secondaryBackground,
+                                    inactiveThumbColor: Colors.black,
                                   ),
                                 ],
                               ),
@@ -416,8 +318,11 @@ class _ConfigsWidgetState extends State<ConfigsWidget> {
                               ),
                               FlutterFlowDropDown<String>(
                                 controller: _model.dropDownValueController1 ??=
-                                    FormFieldController<String>(null),
-                                options: const <String>[],
+                                    FormFieldController<String>(
+                                  _model.dropDownValue1 ??=
+                                      'Portugues Brasileiro',
+                                ),
+                                options: const ['Portugues Brasileiro'],
                                 onChanged: (val) => safeSetState(
                                     () => _model.dropDownValue1 = val),
                                 width: double.infinity,
@@ -442,8 +347,10 @@ class _ConfigsWidgetState extends State<ConfigsWidget> {
                               ),
                               FlutterFlowDropDown<String>(
                                 controller: _model.dropDownValueController2 ??=
-                                    FormFieldController<String>(null),
-                                options: const <String>[],
+                                    FormFieldController<String>(
+                                  _model.dropDownValue2 ??= 'Real (BRL)',
+                                ),
+                                options: const ['Real (BRL)'],
                                 onChanged: (val) => safeSetState(
                                     () => _model.dropDownValue2 = val),
                                 width: double.infinity,
@@ -468,8 +375,10 @@ class _ConfigsWidgetState extends State<ConfigsWidget> {
                               ),
                               FlutterFlowDropDown<String>(
                                 controller: _model.dropDownValueController3 ??=
-                                    FormFieldController<String>(null),
-                                options: const <String>[],
+                                    FormFieldController<String>(
+                                  _model.dropDownValue3 ??= 'GMT-3(Brasil)',
+                                ),
+                                options: const ['GMT-3(Brasil)'],
                                 onChanged: (val) => safeSetState(
                                     () => _model.dropDownValue3 = val),
                                 width: double.infinity,
@@ -564,6 +473,36 @@ class _ConfigsWidgetState extends State<ConfigsWidget> {
                               FlutterFlowTheme.of(context).titleMedium.override(
                                     fontFamily: 'Inter Tight',
                                     color: FlutterFlowTheme.of(context).info,
+                                    letterSpacing: 0.0,
+                                  ),
+                          elevation: 3.0,
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primaryText,
+                          ),
+                          borderRadius: BorderRadius.circular(28.0),
+                        ),
+                      ),
+                      FFButtonWidget(
+                        onPressed: () async {
+                          GoRouter.of(context).prepareAuthEvent();
+                          await authManager.signOut();
+                          GoRouter.of(context).clearRedirectLocation();
+
+                          context.goNamedAuth('LoginPage', context.mounted);
+                        },
+                        text: 'Sair',
+                        options: FFButtonOptions(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 56.0,
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: Colors.black,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleMedium.override(
+                                    fontFamily: 'Inter Tight',
+                                    color: const Color(0xFFFF0000),
                                     letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,

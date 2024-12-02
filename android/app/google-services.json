@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "264925967880",
+    "project_id": "servicos-ja-pi4-es-2024-t5",
+    "storage_bucket": "servicos-ja-pi4-es-2024-t5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264925967880:android:b7788e4de561b12f1a03bd",
+        "android_client_info": {
+          "package_name": "com.mycompany.servicosja"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_9Nr1PHyKCPb6vErgKV3Sym3v8lvglC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
